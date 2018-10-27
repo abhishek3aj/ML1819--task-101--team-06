@@ -12,98 +12,98 @@ training_epochs = 10000
 display_step = 50
 
 # Read in data from csv to a dataframe
-df=pd.read_csv('weather_medium.csv', sep=',')
+df=pd.read_csv("/home/abhishek/Documents/Ml-project/TCD-ML-18-19-Team-6-/code-base/weather_small.csv", sep=',')
 
-# Reformate the type of the date/time column
-df['Formatted Date'] =  pd.to_datetime(df['Formatted Date'])
-
-# Create a new column for year / month / hour
-df['Year'] = pd.DatetimeIndex(df['Formatted Date']).year
-df['Month'] = pd.DatetimeIndex(df['Formatted Date']).month
-df['Hour'] = pd.DatetimeIndex(df['Formatted Date']).hour
-
-# Remove original datet/time column
-df=df.drop(['Formatted Date'],axis=1)
-
-# Convert columns to factors
-df['Summary'] = df['Summary'].astype('category')
-df['Precip Type'] = df['Precip Type'].astype('category')
-df['Daily Summary'] = df['Daily Summary'].astype('category')
-
-print('Head of dataframe',df.head())
-# plot the data so we can see how it looks
-# (output is in file graph.png)
-
-fig, ax = plt.subplots(figsize=(12, 8))
-ax.scatter(df['Temperature (C)'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
-ax.set_xlabel('Temperature (C)')
-ax.set_ylabel('Apparent Temperature (C)')
-ax.set_title('Apparent Temperature vs Temperature for all data')
-ax.legend(loc=2)
-fig.savefig('Plot_Small_Weather_Raw.png')
-
-fig, ax = plt.subplots(figsize=(12, 8))
-ax.scatter(df['Humidity'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
-ax.set_xlabel('Humidity')
-ax.set_ylabel('Apparent Temperature (C)')
-ax.set_title('Apparent Temperature vs Humidity for all data')
-ax.legend(loc=2)
-
-fig, ax = plt.subplots(figsize=(12, 8))
-ax.scatter(df['Wind Speed (km/h)'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
-ax.set_xlabel('Wind Speed (km/h)')
-ax.set_ylabel('Apparent Temperature (C)')
-ax.set_title('Apparent Temperature vs Wind Speed (km/h) for all data')
-ax.legend(loc=2)
-
-fig, ax = plt.subplots(figsize=(12, 8))
-ax.scatter(df['Wind Bearing (degrees)'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
-ax.set_xlabel('Wind Bearing (degrees)')
-ax.set_ylabel('Apparent Temperature (C)')
-ax.set_title('Apparent Temperature vs Wind Bearing (degrees) for all data')
-ax.legend(loc=2)
-
-fig, ax = plt.subplots(figsize=(12, 8))
-ax.scatter(df['Visibility (km)'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
-ax.set_xlabel('Visibility (km)')
-ax.set_ylabel('Apparent Temperature (C)')
-ax.set_title('Apparent Temperature vs Visibility (km) for all data')
-ax.legend(loc=2)
-
-fig, ax = plt.subplots(figsize=(12, 8))
-ax.scatter(df['Loud Cover'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
-ax.set_xlabel('Loud Cover')
-ax.set_ylabel('Apparent Temperature (C)')
-ax.set_title('Apparent Temperature vs Loud Cover for all data')
-ax.legend(loc=2)
-
-fig, ax = plt.subplots(figsize=(12, 8))
-ax.scatter(df['Pressure (millibars)'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
-ax.set_xlabel('Pressure (millibars)')
-ax.set_ylabel('Apparent Temperature (C)')
-ax.set_title('Apparent Temperature vs Pressure (millibars) for all data')
-ax.legend(loc=2)
-
-fig, ax = plt.subplots(figsize=(12, 8))
-ax.scatter(df['Year'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
-ax.set_xlabel('Year')
-ax.set_ylabel('Apparent Temperature (C)')
-ax.set_title('Apparent Temperature vs Year for all data')
-ax.legend(loc=2)
-
-fig, ax = plt.subplots(figsize=(12, 8))
-ax.scatter(df['Month'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
-ax.set_xlabel('Month')
-ax.set_ylabel('Apparent Temperature (C)')
-ax.set_title('Apparent Temperature vs Month for all data')
-ax.legend(loc=2)
-
-fig, ax = plt.subplots(figsize=(12, 8))
-ax.scatter(df['Hour'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
-ax.set_xlabel('Hour')
-ax.set_ylabel('Apparent Temperature (C)')
-ax.set_title('Apparent Temperature vs Hour for all data')
-ax.legend(loc=2)
+# # Reformate the type of the date/time column
+# df['Formatted Date'] =  pd.to_datetime(df['Formatted Date'])
+#
+# # Create a new column for year / month / hour
+# df['Year'] = pd.DatetimeIndex(df['Formatted Date']).year
+# df['Month'] = pd.DatetimeIndex(df['Formatted Date']).month
+# df['Hour'] = pd.DatetimeIndex(df['Formatted Date']).hour
+#
+# # Remove original datet/time column
+# df=df.drop(['Formatted Date'],axis=1)
+#
+# # Convert columns to factors
+# df['Summary'] = df['Summary'].astype('category')
+# df['Precip Type'] = df['Precip Type'].astype('category')
+# df['Daily Summary'] = df['Daily Summary'].astype('category')
+#
+# print('Head of dataframe',df.head())
+# # plot the data so we can see how it looks
+# # (output is in file graph.png)
+#
+# fig, ax = plt.subplots(figsize=(12, 8))
+# ax.scatter(df['Temperature (C)'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
+# ax.set_xlabel('Temperature (C)')
+# ax.set_ylabel('Apparent Temperature (C)')
+# ax.set_title('Apparent Temperature vs Temperature for all data')
+# ax.legend(loc=2)
+# fig.savefig('Plot_Small_Weather_Raw.png')
+#
+# fig, ax = plt.subplots(figsize=(12, 8))
+# ax.scatter(df['Humidity'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
+# ax.set_xlabel('Humidity')
+# ax.set_ylabel('Apparent Temperature (C)')
+# ax.set_title('Apparent Temperature vs Humidity for all data')
+# ax.legend(loc=2)
+#
+# fig, ax = plt.subplots(figsize=(12, 8))
+# ax.scatter(df['Wind Speed (km/h)'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
+# ax.set_xlabel('Wind Speed (km/h)')
+# ax.set_ylabel('Apparent Temperature (C)')
+# ax.set_title('Apparent Temperature vs Wind Speed (km/h) for all data')
+# ax.legend(loc=2)
+#
+# fig, ax = plt.subplots(figsize=(12, 8))
+# ax.scatter(df['Wind Bearing (degrees)'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
+# ax.set_xlabel('Wind Bearing (degrees)')
+# ax.set_ylabel('Apparent Temperature (C)')
+# ax.set_title('Apparent Temperature vs Wind Bearing (degrees) for all data')
+# ax.legend(loc=2)
+#
+# fig, ax = plt.subplots(figsize=(12, 8))
+# ax.scatter(df['Visibility (km)'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
+# ax.set_xlabel('Visibility (km)')
+# ax.set_ylabel('Apparent Temperature (C)')
+# ax.set_title('Apparent Temperature vs Visibility (km) for all data')
+# ax.legend(loc=2)
+#
+# fig, ax = plt.subplots(figsize=(12, 8))
+# ax.scatter(df['Loud Cover'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
+# ax.set_xlabel('Loud Cover')
+# ax.set_ylabel('Apparent Temperature (C)')
+# ax.set_title('Apparent Temperature vs Loud Cover for all data')
+# ax.legend(loc=2)
+#
+# fig, ax = plt.subplots(figsize=(12, 8))
+# ax.scatter(df['Pressure (millibars)'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
+# ax.set_xlabel('Pressure (millibars)')
+# ax.set_ylabel('Apparent Temperature (C)')
+# ax.set_title('Apparent Temperature vs Pressure (millibars) for all data')
+# ax.legend(loc=2)
+#
+# fig, ax = plt.subplots(figsize=(12, 8))
+# ax.scatter(df['Year'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
+# ax.set_xlabel('Year')
+# ax.set_ylabel('Apparent Temperature (C)')
+# ax.set_title('Apparent Temperature vs Year for all data')
+# ax.legend(loc=2)
+#
+# fig, ax = plt.subplots(figsize=(12, 8))
+# ax.scatter(df['Month'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
+# ax.set_xlabel('Month')
+# ax.set_ylabel('Apparent Temperature (C)')
+# ax.set_title('Apparent Temperature vs Month for all data')
+# ax.legend(loc=2)
+#
+# fig, ax = plt.subplots(figsize=(12, 8))
+# ax.scatter(df['Hour'],df['Apparent Temperature (C)'],c='b',s=0.2, label='Data')
+# ax.set_xlabel('Hour')
+# ax.set_ylabel('Apparent Temperature (C)')
+# ax.set_title('Apparent Temperature vs Hour for all data')
+# ax.legend(loc=2)
 
 # df.dtypes
 y = df['Apparent Temperature (C)']
@@ -119,13 +119,12 @@ msk = np.random.rand(len(Zipped_data)) < 0.8
 train = Zipped_data[msk]
 test = Zipped_data[~msk]
 
-
-
 # Training Data
 train_X = train.values[0]
 train_Y = train.values[1]
 n_samples = train_X.shape[0]
-
+test_X = test.values[0]
+test_Y = test.values[1]
 # tf Graph Input
 X = tf.placeholder("float")
 Y = tf.placeholder("float")
@@ -174,8 +173,8 @@ with tf.Session() as sess:
     plt.savefig("lrm1")
 
     # Testing example, as requested (Issue #2)
-    test_X = np.asarray([6.83, 4.668, 8.9, 7.91, 5.7, 8.7, 3.1, 2.1])
-    test_Y = np.asarray([1.84, 2.273, 3.2, 2.831, 2.92, 3.24, 1.35, 1.03])
+    # test_X = np.asarray([6.83, 4.668, 8.9, 7.91, 5.7, 8.7, 3.1, 2.1])
+    # test_Y = np.asarray([1.84, 2.273, 3.2, 2.831, 2.92, 3.24, 1.35, 1.03])
 
     print("Testing... (Mean square loss Comparison)")
     testing_cost = sess.run(
