@@ -5,7 +5,7 @@ import csv
 large = []
 medium = []
 small = []
-with open('../weatherHistory.csv', "r") as csvfile:
+with open('/home/abhishek/Downloads/New_Weather.csv', "r") as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     header = next(reader, None)
     large.append(header)
