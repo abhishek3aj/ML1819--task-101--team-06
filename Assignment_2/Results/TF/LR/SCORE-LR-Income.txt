@@ -1,6 +1,15 @@
+Learning rate 0.01
 Score of validation model:  0.8425108902044007
 Error rate of validation model:  0.15748910979559927
 Recall / TPR of validation model:  0.9392061384093257
 FNR of validation model:  0.06079386159067435
 Specificity / TNR of validation model:  0.5413602941176471
 FPR of validation model:  0.4586397058823529
+
+Learning Rate 0.03
+Score of validation model:  0.8439629174578354
+Error rate of validation model:  0.15603708254216464
+Recall / TPR of validation model:  0.9315312639239566
+FNR of validation model:  0.06846873607604342
+Specificity / TNR of validation model:  0.5783783783783784
+FPR of validation model:  0.42162162162162165
