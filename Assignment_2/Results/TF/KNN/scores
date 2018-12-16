@@ -1,0 +1,8 @@
+
+Score of validation model:  0.9285714285714286
+Error rate of validation model:  0.0714285714285714
+Recall / TPR of validation model:  0.958904109589041
+FNR of validation model:  0.04109589041095896
+Specificity / TNR of validation model:  0.8717948717948718
+FPR of validation model:  0.1282051282051282
+
